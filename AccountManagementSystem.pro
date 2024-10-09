@@ -8,15 +8,37 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+QT+=sql
+
 SOURCES += \
+    database/account.cpp \
+    database/connection.cpp \
+    database/department.cpp \
+    database/systemSting.cpp \
+    err/errorform.cpp \
     main.cpp \
-    mainwindow.cpp
+    ui/login.cpp \
+    ui/mainwindow.cpp \
+    ui/sreachemployee.cpp
 
 HEADERS += \
-    mainwindow.h
+    account.h \
+    connection.h \
+    database/account.h \
+    database/connection.h \
+    database/department.h \
+    database/employee.h \
+    database/systemSting.h \
+    err/errorform.h \
+    ui/login.h \
+    ui/mainwindow.h \
+    ui/sreachemployee.h
 
 FORMS += \
-    mainwindow.ui
+    err/errorform.ui \
+    ui/login.ui \
+    ui/mainwindow.ui \
+    ui/sreachemployee.ui
 
 TRANSLATIONS += \
     AccountManagementSystem_zh_CN.ts
@@ -27,3 +49,9 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    resource/headiImage.jpg
