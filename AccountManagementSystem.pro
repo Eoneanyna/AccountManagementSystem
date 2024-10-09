@@ -54,4 +54,5 @@ RESOURCES += \
     resource.qrc
 
 DISTFILES += \
+    readme.md \
     resource/headiImage.jpg
