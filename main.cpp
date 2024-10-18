@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include<config/config.h>
 
 int main(int argc, char *argv[])
 {
@@ -18,9 +19,18 @@ int main(int argc, char *argv[])
             break;
         }
     }
-    MainWindow w;
-    Login login;
-    w.show();
-    login.show();
+
+    config conf;
+    QString err = conf.initConfig();
+    if (err!=nullptr){
+        errorForm errBox;
+        errBox.SetErrDetail(err);
+        errBox.show();
+        return a.exec();
+    }
+
+    Login l;
+    l.conf = &conf;
+    l.show();
     return a.exec();
 }

@@ -10,7 +10,11 @@ CONFIG += c++11
 
 QT+=sql
 
+#QMAKE_USE += mysql
+
+
 SOURCES += \
+    config/config.cpp \
     database/account.cpp \
     database/connection.cpp \
     database/department.cpp \
@@ -23,6 +27,7 @@ SOURCES += \
 
 HEADERS += \
     account.h \
+    config/config.h \
     connection.h \
     database/account.h \
     database/connection.h \
@@ -54,5 +59,6 @@ RESOURCES += \
     resource.qrc
 
 DISTFILES += \
+    database/database.txt \
     readme.md \
     resource/headiImage.jpg

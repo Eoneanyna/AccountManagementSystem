@@ -11,4 +11,5 @@ SreachEmployee::SreachEmployee(QWidget *parent) :
 SreachEmployee::~SreachEmployee()
 {
     delete ui;
+    delete eInfos;
 }

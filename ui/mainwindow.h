@@ -15,6 +15,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+ void click_LoginAcc_Edit();
+ void click_Employee_Edit();
+ void click_Employee_Search();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -22,6 +22,10 @@ Login::Login(QWidget *parent) :
 
     //提交按钮
     connect(ui->loginButton,SIGNAL(clicked(bool)),SLOT(click_Login()));
+
+
+    //show
+    this->show();
 }
 
 Login::~Login()
@@ -42,7 +46,7 @@ void Login::click_Login(){
        }else{
             qDebug("accName: %s,accPw: %s",qPrintable(this->accName), qPrintable(this->accPw)) ;
             //登录
-
+            this->w.show();
             //关闭窗图
             this->close();
         }

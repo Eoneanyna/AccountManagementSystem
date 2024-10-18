@@ -9,7 +9,7 @@ public:
     department();
     int ID;
     QString Name;
-    int PID;//父id
+    int PID;        //父id
 };
 
 #endif // DEPARTMENT_H

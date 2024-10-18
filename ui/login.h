@@ -4,6 +4,8 @@
 
 #include <QWidget>
 #include <iostream>
+#include<ui/mainwindow.h>
+#include<config/config.h>
 using namespace std;
 
 namespace Ui {
@@ -17,6 +19,8 @@ class Login : public QWidget
 public:
     explicit Login(QWidget *parent = nullptr);
     ~Login();
+    MainWindow w;
+    config* conf;
 
 public slots:
  void click_Login();

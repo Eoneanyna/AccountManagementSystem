@@ -9,8 +9,8 @@ public:
     systemSting();
     int ID;
     QString Name;
-    int PID;//父id
-    QString PS;//备注，写账号、卡and so on
+    int PID;        //父id
+    QString PS;     //备注，写账号、卡and so on
 
 };
 

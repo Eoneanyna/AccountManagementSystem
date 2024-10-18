@@ -10,7 +10,7 @@ public:
     int ID;
     QString uName;
     QString uPassword;
-    int Role;//0普通用户 -1超级用户
+    int Role;           //0普通用户 -1超级用户
 };
 
 #endif // ACCOUNT_H

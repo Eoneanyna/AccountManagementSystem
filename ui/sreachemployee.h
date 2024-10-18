@@ -2,6 +2,7 @@
 #define SREACHEMPLOYEE_H
 
 #include <QWidget>
+#include<database/employee.h>
 
 namespace Ui {
 class SreachEmployee;
@@ -14,6 +15,7 @@ class SreachEmployee : public QWidget
 public:
     explicit SreachEmployee(QWidget *parent = nullptr);
     ~SreachEmployee();
+    employee *eInfos;
 
 private:
     Ui::SreachEmployee *ui;
