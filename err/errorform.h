@@ -2,10 +2,18 @@
 #define ERRORFORM_H
 
 #include <QWidget>
+#include<string>
+using namespace std;
 
 namespace Ui {
 class errorForm;
 }
+
+template<class T>
+struct ReMsg{
+    QString err = nullptr;
+    vector<T> value;
+};
 
 class errorForm : public QWidget
 {
@@ -24,5 +32,7 @@ private:
 
     QString error_detail;
 };
+
+
 
 #endif // ERRORFORM_H

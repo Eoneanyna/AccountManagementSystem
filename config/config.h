@@ -5,7 +5,7 @@
 #include<QSqlDatabase>
 #include<err/errorform.h>
 
-class Db{
+class DbConf{
 public:
     QString databaseIP = "localhost";
     QString databaseName = "employee";
@@ -13,12 +13,23 @@ public:
     QString dbUPW = "123456";
 };
 
-class config
+enum RoleType{
+    Super = -1,
+    Normal = 0
+};
+
+struct Logined{
+    QString UserName;
+    RoleType Role;
+};
+
+class Config
 {
 public:
-    config();
-    Db dbConfig;
-    QSqlDatabase db;
+    Config();
+    DbConf dbConfig;
+    QSqlDatabase orm_db;
+    Logined user;
     QString initConfig();
 
 private:
@@ -26,5 +37,7 @@ private:
     QString initDb();
 
 };
+
+extern Config conf;
 
 #endif // CONFIG_H

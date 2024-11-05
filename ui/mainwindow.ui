@@ -57,6 +57,19 @@
      <string>登录账号管理</string>
     </property>
    </widget>
+   <widget class="QLabel" name="user_msg">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>72</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

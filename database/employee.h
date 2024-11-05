@@ -4,8 +4,10 @@
 #endif // EMPLOYEE_H
 
 #include<QString>
+#include<database/db.h>
 
-class employee{
+class employee
+{
 public:
     int ID;             //员工唯一ID
     QString E_name;     //员工姓名+英文名

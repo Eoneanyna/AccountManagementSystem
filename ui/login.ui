@@ -26,7 +26,7 @@
    <string>Login</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resource.qrc">
+   <iconset>
     <normaloff>:/developer/resource/headiImage.jpg</normaloff>:/developer/resource/headiImage.jpg</iconset>
   </property>
   <widget class="QLabel" name="label_3">
@@ -191,8 +191,6 @@
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="resource.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -2,34 +2,29 @@
 #define LOGIN_H
 #define HEADIMAGEPATH ":/developer/resource/headiImage.jpg"
 
-#include <QWidget>
+#include <QDialog>
 #include <iostream>
-#include<ui/mainwindow.h>
-#include<config/config.h>
+
+#include<database/account.h>
 using namespace std;
 
 namespace Ui {
 class Login;
 }
 
-class Login : public QWidget
+class Login : public QDialog
 {
     Q_OBJECT
 
 public:
     explicit Login(QWidget *parent = nullptr);
     ~Login();
-    MainWindow w;
-    config* conf;
 
 public slots:
  void click_Login();
 
 private:
     Ui::Login *ui;
-
-    QString accName;
-    QString accPw;
 };
 
 #endif // LOGIN_H

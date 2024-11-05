@@ -2,6 +2,7 @@
 #define SYSTEMSTING_H
 
 #include<QString>
+#include<database/db.h>
 
 class systemSting
 {

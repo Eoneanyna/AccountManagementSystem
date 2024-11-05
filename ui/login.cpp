@@ -4,13 +4,17 @@
 #include<QDebug>
 #include<qstring.h>
 #include<err/errorform.h>
+#include<config/config.h>
 
 #include <iostream>
 using namespace std;
 
+QString superUserName = "root";
+QString superUserPW = "Dcnfs";
+
 
 Login::Login(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::Login)
 {
     ui->setupUi(this);
@@ -34,20 +38,49 @@ Login::~Login()
 }
 
 void Login::click_Login(){
-       this->accName = ui->accountName->text();
-       this->accPw = ui->accountPw->text();
+       QString accName = ui->accountName->text();
+       QString accPw = ui->accountPw->text();
 
-       if(accPw.size()<8||accName.size()<1){
-            //错误提示框图
-            errorForm *err = new errorForm;
-            err->SetErrDetail(QString("用户名或密码输入错误，密码为8位及以上，用户名不能为空!"));
-            err->show();
-
+       //错误提示框图
+       errorForm *err = new errorForm;
+       if(accName == superUserName && accPw == superUserPW){
+          conf.user.UserName = superUserName;
+          conf.user.Role = Super;
+          //关闭窗图
+          this->close();
+          //开启主窗图
+          accept();
        }else{
-            qDebug("accName: %s,accPw: %s",qPrintable(this->accName), qPrintable(this->accPw)) ;
-            //登录
-            this->w.show();
-            //关闭窗图
-            this->close();
+           if(accPw.size()<8||accName.size()<1){
+                err->SetErrDetail(QString("用户名或密码输入错误，密码为8位及以上，用户名不能为空!"));
+                err->show();
+           }else{
+                qDebug("accName: %s,accPw: %s",qPrintable(accName), qPrintable(accPw)) ;
+
+              //搜索账号
+              Account acc;
+              qx_query query;
+              query.where("uName").isEqualTo(accName);
+              QSqlError daoError =  qx::dao::fetch_by_query(query, acc, &conf.orm_db);
+              if (daoError.type() != QSqlError::NoError)
+              {
+                err->SetErrDetail(daoError.text());
+                err->show();
+                return;
+               }
+
+              if(acc.uName != accName || acc.uPassword != accPw){
+                err->SetErrDetail("用户名或密码错误,请重新输入！");
+                err->show();
+                return;
+              }
+
+              conf.user.UserName = accName;
+              conf.user.Role = acc.Role;
+              //关闭窗图
+              this->close();
+              //开启主窗图
+              accept();
+            }
         }
 }
